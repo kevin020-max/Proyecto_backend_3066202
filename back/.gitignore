@@ -1,0 +1,3 @@
+#Dependencias que no se suben
+node_modules/
+package-lock.json
