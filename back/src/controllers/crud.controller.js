@@ -1,7 +1,7 @@
 const db =require('../config/conexion_DB');
 
 class CrudController{
-    //Obteer todos los registros de una tabla
+    //Obtener todos los registros de una tabla
     async obtenerTodos(tabla){
         const[resultados] = await db.query(`SELECT * FROM ${tabla}`);
         return resultados;
