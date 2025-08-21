@@ -9,13 +9,13 @@ const idCampo = 'id_equipo';
 
 //Rutas para operaciones CRUD
 
-router.get('/', async(req, res) =>{
-    try{
+router.get('/', async (req, res) => {
+    try {
         const datos = await crud.obtenerTodos(tabla);
         res.json(datos)
-    }catch (error) {
+    } catch (error) {
         console.error('Error al obtener los equipos:', error);
-        res.status(500).json({message: 'Error al obtener los equipos',error})
+        res.status(500).json({ message: 'Error al obtener los equipos', error });
     }
 });
 
@@ -24,7 +24,7 @@ router.get('/:id', async (req, res) => {
         const dato = await crud.obtenerUno(tabla, idCampo, req.params.id);
         res.json(dato)
     } catch (error) {
-        res.status(500).json({ error: error.message})
+        res.status(500).json({ error: error.message });
     }
 });
 
@@ -33,7 +33,7 @@ router.post('/', async (req, res) => {
         const nuevoDato = await crud.crear(tabla, req.body);
         res.status(201).json(nuevoDato);
     } catch (error) {
-        res.status(500).json({ error: error.message })
+        res.status(500).json({ error: error.message });
     }
 });
 
@@ -53,7 +53,7 @@ router.delete('/:id', async (req, res) => {
         res.json(resultado);
     } catch (error) {
         if (error.message.includes('Registro no encontrado')) {
-            res.status(404).json({error: 'dato no encontrado'});
+            res.status(404).json({ error: 'dato no encontrado' });
         } else {
             res.status(500).json({ error: 'Error al eliminar el dato' + error.message });
         }
