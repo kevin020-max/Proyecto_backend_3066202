@@ -1,47 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Basico 01</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- navbar -->
     <nav>
-        <h1>Bienvenidos al mundo de fútbol</h1>
-        <p>Aqui encontrarás el nombre de agunos equipos clasificados al mundial</p>
+      <h1>Bienvenido al mundial de fútbol</h1>
+      <p>Aquí encontrarás el listado de equipos del mundo</p>
     </nav>
 
-    <h2>Equipos de fútbol clasificados</h2>
-    <!--Formulario para crear o editar equipos-->
+    <h2>Equipos de fútbol</h2>
 
-    <form id="datoForm">
-        <input type="hidden" id="id_equipo">
+    <!-- Formulario para crear/editar personas -->
+    <form id="dataForm">
+      <input type="hidden" id="id_equipo" />
 
-        <div>
-            <label for="nombre">Nombre del equipo</label>
-            <input type="text" id="nombre" required>
-        </div>
+      <div>
+        <label for="nombre">Nombre del equipo:</label>
+        <input type="text" id="nombre" required />
+      </div>
 
-        <!--Botones-->
+      <div>
         <button type="submit" id="btnGuardar">Guardar</button>
-        <button type="button" id=" btnCancelar">Cancelar</button>
+        <button type="button" id="btnCancelar">Cancelar</button>
+      </div>
     </form>
 
-    <!--Contenedor tipo plantilla para renderizar los equipos-->
-    <div id="contenedorCard" style="display: flex; flex-wrap: warp; gap: 20px; margin-top: 20px;""></div>
+    <!-- Contenedor para mostrar los equipos -->
+    <div
+      id="contenedorCards"
+      style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 20px"
+    ></div>
 
-    <!--Plantilla de renderizado-->
     <template id="templateCard">
-        <div class="card-equipos" style="border: 1px solid #ccc; padding: 16px; border-radius: 8px; width: 250px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); display: flex; flex-direction: column; align-items: center;">
-            <h3 clas="nombeEquipos"></h3>
-            <div style="margin-top: 10px;">
-                <button class="btn-editar">Editar</button>
-                <button class="btn-eliminar">Eliminar</button>
-            </div>
+      <div
+        class="card-equipos"
+        style="
+          border: 1px solid #ccc;
+          padding: 16px;
+          border-radius: 8px;
+          width: 250px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        "
+      >
+        <h3 class="nombreEquipos"></h3>
+        <div style="margin-top: 10px">
+          <button class="btn-editar">Editar</button>
+          <button class="btn-eliminar">Eliminar</button>
         </div>
+      </div>
     </template>
 
-    <!--Se invoca el archivo JavaScript al final del codigo-->
     <script src="index.js"></script>
-</body>
+  </body>
 </html>
